@@ -1,16 +1,21 @@
+# Scenario
+
+In this alternate scenario, we add some configuration to `webpack.config.js` to disable source maps and tell
+`uglify-js` not to compress.
+
+As a result, the build no longer hangs, but it also does not do tree-shaking, which is the ultimate desired result.
+
 # Usage
 1. `yarn`
 1. `webpack --progress --mode production`
 
 # Actual Result
-During the build process, observe it hanging here for a really long time, like `274238ms` on a 3.1 GHz Intel Core i7 with 16 GB RAM.
-```
-92% chunk asset optimization UglifyJSPlugin
-```
+1. rapid build
+1. `dist.bundle.js` includes all icons, rather than just those actually used in `src/index.js`
 
 # Expected Result
-It should build in 3-4 seconds at most, resulting in a tree-shaken `dist/bundle.js`.
-We'll know the tree has been shaken because we won't find any icons in the bundle other than `faBell`, `faCoffee`, and `faFontAwesome`. For example, a string match on `faBeer` on the contents of `dist/bundle.js` should produce no results.
+The actual result, in this case, _is_ the expected result. But it shows that, in order to fix the build-time,
+you have to disable the key feature that we wanted to use. Thus, `compress: false` is not an acceptible workaround.
 
 # Explanation of the Code being Compiled
 
