@@ -12,6 +12,12 @@ During the build process, observe it hanging here for a really long time, like `
 It should build in 3-4 seconds at most, resulting in a tree-shaken `dist/bundle.js`.
 We'll know the tree has been shaken because we won't find any icons in the bundle other than `faBell`, `faCoffee`, and `faFontAwesome`. For example, a string match on `faBeer` on the contents of `dist/bundle.js` should produce no results.
 
+# Alternate Scenarios
+
+There are other branches in this repo with alternate scenarios: workarounds and such.
+
+1. `uglify-js-no-compress`: adds `compress: false` to `uglifyOptions` in `webpack.config.js`. Not a satisfactory workaround.
+
 # Explanation of the Code being Compiled
 
 `src/index.js` contains code that simply imports a single icon out of each of three icon packs from Font Awesome 5 Free, where each icon pack includes many other icons. It adds those to the library, just to make use of the icon objects in some way. And then prints a `hello, world` message. So, the function of the program is trivial, only meant to exercise the build time tree-shaking functionality.
