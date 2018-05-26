@@ -1,0 +1,19 @@
+{
+  "name": "webpack4-uglifyjs-92percent-hang-repro",
+  "version": "0.0.1",
+  "description": "Reproduce the 92% asset chunk asset optimization hang in webpack 4 with UglifyJS using Font Awesome 5 Free.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Wilkerson <mwilkerson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-11",
+    "@fortawesome/free-brands-svg-icons": "^5.1.0-8",
+    "@fortawesome/free-regular-svg-icons": "^5.1.0-8",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-8",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4"
+  }
+}
