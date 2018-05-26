@@ -10,13 +10,20 @@ During the build process, observe it hanging here for a really long time, like `
 
 # Expected Result
 It should build in 3-4 seconds at most, resulting in a tree-shaken `dist/bundle.js`.
-We'll know the tree has been shaken because we won't find any icons in the bundle other than `faBell`, `faCoffee`, and `faFontAwesome`. For example, a string match on `faBeer` on the contents of `dist/bundle.js` should produce no results.
+We'll know the tree has been shaken because we won't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
+We can see those in the bundle by text searching for:
+* iconName:'coffee'
+* iconName:'bell'
+* iconName:'font-awesome'
+
+We should _not_ be able to find other icons in the icon packs, such as 'beer'.
 
 # Alternate Scenarios
 
 There are other branches in this repo with alternate scenarios: workarounds and such.
 
 1. `uglify-js-no-compress`: adds `compress: false` to `uglifyOptions` in `webpack.config.js`. Not a satisfactory workaround.
+1. `babel-minify`: uses `babel-minify-webpack-plugin` instead of the default config that uses UglifyJS. This scenario works as expected: fast build, with proper tree-shaking.
 
 # Explanation of the Code being Compiled
 
