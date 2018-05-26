@@ -13,9 +13,13 @@ As a result, the build no longer hangs, but it also does not do tree-shaking, wh
 1. rapid build
 1. `dist.bundle.js` includes all icons, rather than just those actually used in `src/index.js`
 
+To see the other icons in the bundle, do a text search for the `iconName` attribute. You'll find one for every icon in each icon pack.
+
 # Expected Result
-The actual result, in this case, _is_ the expected result. But it shows that, in order to fix the build-time,
-you have to disable the key feature that we wanted to use. Thus, `compress: false` is not an acceptible workaround.
+The actual result, in this case, _is_ the expected result _given this configuration_. 
+But it is _not_ the ultimate goal: a fast, tree-shaken build.
+In order to speed up the build, you have to disable the feature that shakes the tree.
+Thus, `compress: false` is not an acceptible workaround.
 
 # Explanation of the Code being Compiled
 
