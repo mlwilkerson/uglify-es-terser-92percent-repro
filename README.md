@@ -21,7 +21,7 @@ We do _not_ find other icons in the icon packs, such as 'beer'.
 ## Rollup
 `dist/bundle-rollup.js`
 
-Fast build time, but NOT tree-shaken
+Slower build time than expected (3x as long as Webpack), and NOT tree-shaken
 
 # Expected Results
 
@@ -31,8 +31,9 @@ Same as Actual Result.
 
 ## Rollup
 
-The output bundle should be tree-shaken but is not.
+The build time should be closer to Webpack's.
 
+The output bundle should be tree-shaken but is not.
 We know this because we can find icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
 By searching for text such as:
 * iconName:'beer'
