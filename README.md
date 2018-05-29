@@ -8,33 +8,34 @@
 ## Webpack
 `dist/bundle-webpack.js`
 
-During the build process, observe it hanging here for a really long time, like `274238ms` on a 3.1 GHz Intel Core i7 with 16 GB RAM.
-```
-92% chunk asset optimization UglifyJSPlugin
-```
+Fast build, tree-shaken (into `dist/bundle-webpack.js`)
 
-## Rollup
-`dist/bundle-rollup.js`
-
-Fast build time, tree-shaken
-
-# Expected Result
-It should build in 3-4 seconds at most, resulting in a tree-shaken `dist/bundle-webpack.js` and `dist/bundle-rollup.js`
-We'll know the tree has been shaken because we won't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
+We know the tree has been shaken because we don't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
 We can see those in the bundle by text searching for:
 * iconName:'coffee'
 * iconName:'bell'
 * iconName:'font-awesome'
 
-We should _not_ be able to find other icons in the icon packs, such as 'beer'.
+We do _not_ find other icons in the icon packs, such as 'beer'.
 
-# Alternate Scenarios
+## Rollup
+`dist/bundle-rollup.js`
 
-There are other branches in this repo with alternate scenarios: workarounds and such.
+Fast build time, but NOT tree-shaken
 
-1. `uglify-js-no-compress`: adds `compress: false` to `uglifyOptions` in `webpack.config.js`. Not a satisfactory workaround.
-1. `babel-minify`: uses `babel-minify-webpack-plugin` instead of the default config that uses UglifyJS. This scenario works as expected: fast build, with proper tree-shaking.
-1. `webpack-3.8.1`: uses webpack 3.8.1 and mostly-default configuration to achieve a production build, instead of webpack 4. Works as expected: fast build, with proper tree-shaking.
+# Expected Results
+
+## Webpack
+
+Same as Actual Result.
+
+## Rollup
+
+The output bundle should be tree-shaken but is not.
+
+We know this because we can find icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
+By searching for text such as:
+* iconName:'beer'
 
 # Explanation of the Code being Compiled
 
