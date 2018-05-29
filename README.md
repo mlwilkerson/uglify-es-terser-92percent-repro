@@ -1,29 +1,21 @@
 # Usage
 1. `yarn`
-1. `webpack --progress --mode production`
+1. `webpack --progress -p`
 
 # Actual Result
-During the build process, observe it hanging here for a really long time, like `274238ms` on a 3.1 GHz Intel Core i7 with 16 GB RAM.
-```
-92% chunk asset optimization UglifyJSPlugin
-```
+Fast build, tree-shaken (into `dist/bundle.js`)
 
-# Expected Result
-It should build in 3-4 seconds at most, resulting in a tree-shaken `dist/bundle.js`.
-We'll know the tree has been shaken because we won't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
+We know the tree has been shaken because we don't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
 We can see those in the bundle by text searching for:
 * iconName:'coffee'
 * iconName:'bell'
 * iconName:'font-awesome'
 
-We should _not_ be able to find other icons in the icon packs, such as 'beer'.
+We do _not_ find other icons in the icon packs, such as 'beer'.
 
-# Alternate Scenarios
+# Expected Result
 
-There are other branches in this repo with alternate scenarios: workarounds and such.
-
-1. `uglify-js-no-compress`: adds `compress: false` to `uglifyOptions` in `webpack.config.js`. Not a satisfactory workaround.
-1. `babel-minify`: uses `babel-minify-webpack-plugin` instead of the default config that uses UglifyJS. This scenario works as expected: fast build, with proper tree-shaking.
+Same as Actual Result.
 
 # Explanation of the Code being Compiled
 

@@ -13,7 +13,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.1.0-8",
     "@fortawesome/free-regular-svg-icons": "^5.1.0-8",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-8",
-    "webpack": "^4.9.1",
-    "webpack-cli": "^2.1.4"
+    "webpack": "3.8.1"
   }
 }
