@@ -1,15 +1,22 @@
 # Usage
 1. `yarn`
 1. `webpack --progress --mode production`
+1. `rollup -c`
 
 # Actual Result
+`dist/bundle-webpack.js`
+
+## Webpack
 During the build process, observe it hanging here for a really long time, like `274238ms` on a 3.1 GHz Intel Core i7 with 16 GB RAM.
 ```
 92% chunk asset optimization UglifyJSPlugin
 ```
 
+## Rollup
+Fast build time, tree-shaken
+
 # Expected Result
-It should build in 3-4 seconds at most, resulting in a tree-shaken `dist/bundle.js`.
+It should build in 3-4 seconds at most, resulting in a tree-shaken `dist/bundle-webpack.js` and `dist/bundle-rollup.js`
 We'll know the tree has been shaken because we won't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
 We can see those in the bundle by text searching for:
 * iconName:'coffee'
