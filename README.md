@@ -7,6 +7,7 @@
 
 ## Webpack
 `dist/bundle-webpack.js`
+
 During the build process, observe it hanging here for a really long time, like `274238ms` on a 3.1 GHz Intel Core i7 with 16 GB RAM.
 ```
 92% chunk asset optimization UglifyJSPlugin
@@ -14,6 +15,7 @@ During the build process, observe it hanging here for a really long time, like `
 
 ## Rollup
 `dist/bundle-rollup.js`
+
 Fast build time, tree-shaken
 
 # Expected Result
