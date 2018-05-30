@@ -49,9 +49,8 @@ There are other branches in this repo with alternate scenarios: workarounds and 
 1. `webpack-3.8.1`: uses webpack 3.8.1 and mostly-default configuration to achieve a production build, instead of webpack 4. Works as expected: fast build, with proper tree-shaking.
 1. `re-exports-trial`: packaging icon `index.es.js` modules as importing and exporting individual icon submodules AND setting `sideEffects: false`. Compare Rollup to Webpack 4.
 1. `side-effects-false-only`: setting `sideEffects: false` without otherwise changing the _contents_ of the `index.es.js` or submodule files.
+1. `es-submodules`: add `.mjs` (ES6) submodules for each icon and have `index.es.js` import these, also use `sideEffects: false`
 
 # Explanation of the Code being Compiled
 
 `src/index.js` contains code that simply imports a single icon out of each of three icon packs from Font Awesome 5 Free, where each icon pack includes many other icons. It adds those to the library, just to make use of the icon objects in some way. And then prints a `hello, world` message. So, the function of the program is trivial, only meant to exercise the build time tree-shaking functionality.
-
-The initial goal of this repo was to demonstrate tree shaking with Webpack 4. That is, to show that when importing and using only a subset of icons, a production-optimized bundle will include only that subset and not the entire icon pack.
