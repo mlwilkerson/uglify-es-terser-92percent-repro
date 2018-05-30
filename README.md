@@ -1,3 +1,11 @@
+# Scenario
+
+This scenario is identical to `master`, except that the `package.json` files of the icon packages
+include `sideEffects: false`. The contents of the `index.es.js` and submodule files are the same
+as `master`, though. This makes it different from the `re-exports-trial` branch, in which the
+both `sideEffects: false` is applied, AND the `index.es.js` files handle icon definition, import
+and re-export differently.
+
 # Usage
 1. `yarn`
 1. `webpack --progress --mode production`
@@ -27,15 +35,6 @@ We can see those in the bundle by text searching for:
 * iconName:'font-awesome'
 
 We should _not_ be able to find other icons in the icon packs, such as 'beer'.
-
-# Alternate Scenarios
-
-There are other branches in this repo with alternate scenarios: workarounds and such.
-
-1. `uglify-js-no-compress`: adds `compress: false` to `uglifyOptions` in `webpack.config.js`. Not a satisfactory workaround.
-1. `babel-minify`: uses `babel-minify-webpack-plugin` instead of the default config that uses UglifyJS. This scenario works as expected: fast build, with proper tree-shaking.
-1. `webpack-3.8.1`: uses webpack 3.8.1 and mostly-default configuration to achieve a production build, instead of webpack 4. Works as expected: fast build, with proper tree-shaking.
-1. `re-exports-trial`: packaging icon `index.es.js` modules as importing and exporting individual icon submodules. Compare Rollup to Webpack 4.
 
 # Explanation of the Code being Compiled
 
