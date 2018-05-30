@@ -51,6 +51,8 @@ There are other branches in this repo with alternate scenarios: workarounds and 
 1. `side-effects-false-only`: setting `sideEffects: false` without otherwise changing the _contents_ of the `index.es.js` or submodule files.
 1. `es-submodules`: add `.mjs` (ES6) submodules for each icon and have `index.es.js` import these, also use `sideEffects: false`
 1. `es-submodules-es-not-mjs`: like `es-submodules` except we use `.es.js` extensions instead of `.mjs` for the ES submodules.
+1. `webpack4-no-minimize-re-export`: demonstrate that webpack 4--_apart and prior to any minification plugin_--can shake the tree when `index.es.js` simply re-exports imported icon objects from submodules.
+1. `webpack4-no-minimize`: demonstrate that webpack 4--_apart and prior to any minification plugin_--DOES NOT shake the tree when `index.es.js` _defines_ and exports the icon objects.
 
 # Explanation of the Code being Compiled
 
