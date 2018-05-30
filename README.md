@@ -1,8 +1,9 @@
 # Scenario
 
-1. Add ES6 modules with .es.js extensions for each icon, and update the `index.es.js` in each icon pack to import them.
+1. Add ES6 modules with .es.js extensions for each icon, and update the `index.es.js` in each icon pack to import and re-export them.
 1. Use `sideEffects: false` in the `package.json` files in each icon package to hint to webpack 4 that these
 modules can be tree-shaken.
+1. DISABLE minification for webpack to show that tree-shaking is happening at the bundler level, not in a minifier plugin.
 
 # Usage
 1. `yarn`
@@ -38,6 +39,8 @@ Fast build, tree-shaken (into `dist/bundle-rollup.js`)
 ## Webpack
 
 Same as Actual Result.
+
+The key here is that Webpack is (apparently) handling tree-shaking at the bundler level, not at the level of a minification plugin, like uglify.
 
 ## Rollup
 
