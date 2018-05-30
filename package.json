@@ -10,9 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-11",
-    "@fortawesome/free-brands-svg-icons": "^5.1.0-8",
-    "@fortawesome/free-regular-svg-icons": "^5.1.0-8",
-    "@fortawesome/free-solid-svg-icons": "^5.1.0-8",
+    "@fortawesome/free-solid-svg-icons": "file:node_modules/@fortawesome/free-solid-svg-icons",
+    "@fortawesome/free-regular-svg-icons": "file:node_modules/@fortawesome/free-regular-svg-icons",
+    "@fortawesome/free-brands-svg-icons": "file:node_modules/@fortawesome/free-brands-svg-icons",
     "rollup": "^0.59.4",
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-uglify": "^4.0.0",
