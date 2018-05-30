@@ -4,5 +4,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle-webpack.js'
+  },
+  optimization: {
+    minimize: false
   }
 }
