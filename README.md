@@ -1,45 +1,21 @@
 # Scenario
 
 1. Add ES6 modules with .mjs extensions for each icon, and update the `index.es.js` in each icon pack to import them.
-1. Use `sideEffects: false` in the `package.json` files in each icon package to hint to webpack 4 that these
-modules can be tree-shaken.
+1. Use Webpack 3
 
 # Usage
 1. `yarn`
-1. `webpack --progress --mode production`
-1. `rollup -c`
+1. `webpack --progress -p`
 1. load `dist/display-webpack.html` in a browser to view rendered icons from the webpack bundle.
-1. load `dist/display-rollup.html` in a browser to view rendered icons from the rollup bundle.
 
 # Actual Result
 
 ## Webpack
 `dist/bundle-webpack.js`
 
-Fast build, tree-shaken (into `dist/bundle-webpack.js`)
-
-(Though the webpack bundle is significantly larger than the rollup bundle.)
-
-We know the tree has been shaken because we don't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
-We can see those in the bundle by text searching for:
-* iconName:'coffee'
-* iconName:'bell'
-* iconName:'font-awesome'
-
-We do _not_ find other icons in the icon packs, such as 'beer'.
-
-## Rollup
-`dist/bundle-rollup.js`
-
-Fast build, tree-shaken (into `dist/bundle-rollup.js`)
+Fast-ish build, NOT tree-shaken (into `dist/bundle-webpack.js`)
 
 # Expected Results
-
-## Webpack
-
-Same as Actual Result.
-
-## Rollup
 
 Same as Actual Result.
 
