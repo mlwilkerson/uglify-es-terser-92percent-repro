@@ -50,6 +50,7 @@ There are other branches in this repo with alternate scenarios: workarounds and 
 1. `re-exports-trial`: packaging icon `index.es.js` modules as importing and exporting individual icon submodules AND setting `sideEffects: false`. Compare Rollup to Webpack 4.
 1. `side-effects-false-only`: setting `sideEffects: false` without otherwise changing the _contents_ of the `index.es.js` or submodule files.
 1. `es-submodules`: add `.mjs` (ES6) submodules for each icon and have `index.es.js` import these, also use `sideEffects: false`
+1. `es-submodules-es-not-mjs`: like `es-submodules` except we use `.es.js` extensions instead of `.mjs` for the ES submodules.
 
 # Explanation of the Code being Compiled
 
