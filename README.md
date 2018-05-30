@@ -1,3 +1,10 @@
+# Scenario
+
+1. Change the content of the `index.es.js` files in the icon packages to simply import the submodules and
+then re-export them (rather than defining the icon objects directly in `index.es.js`).
+1. Add `sideEffects: false` to the `package.json` files in each icon package to hint to webpack 4 that these
+modules can be tree-shaken.
+
 # Usage
 1. `yarn`
 1. `webpack --progress --mode production`
