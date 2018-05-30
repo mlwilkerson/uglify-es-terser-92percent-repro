@@ -1,6 +1,6 @@
 # Scenario
 
-1. Add ES6 modules with .mjs extensions for each icon, and update the `index.es.js` in each icon pack to import them.
+1. Add ES6 modules with .es.js extensions for each icon, and update the `index.es.js` in each icon pack to import them.
 1. Use `sideEffects: false` in the `package.json` files in each icon package to hint to webpack 4 that these
 modules can be tree-shaken.
 
