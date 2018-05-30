@@ -1,3 +1,15 @@
+# Description
+
+Initially, this repo was dedicated to reproducing the notorious "92% asset chunk asset optimization" hang issue in Webpack 4 with UglifyJS and exploring alternatives.
+
+However, it has been evolving into a side-by-side comparison of Webpack and Rollup in a variety of tree-shaking scenarios, seeking workarounds and alternative approaches to module packaging achieves the best results for both bundlers at the same time.
+
+We are operating on the icon packages in Font Awesome 5 Free, which seem to be ideal candidates for such tree-shaking tests, since each package simply includes _lots_ of JavaScript objects, each representing an SVG icon. It's clear to tell when tree-shaking works or doesn't, and when the build is fast or isn't, since there's a significant real-world scale to the size of these modules.
+
+This repo contains several branches, each exploring a different scenario. Some branches only demonstrate Webpack; most compare Webpack to Rollup.
+
+See the `README.md` on each branch for more details and usage of each scenario.
+
 # Usage
 1. `yarn`
 1. `webpack --progress --mode production`
