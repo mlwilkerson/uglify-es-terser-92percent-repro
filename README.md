@@ -8,6 +8,8 @@ modules can be tree-shaken.
 1. `yarn`
 1. `webpack --progress --mode production`
 1. `rollup -c`
+1. load `dist/display-webpack.html` in a browser to view rendered icons from the webpack bundle.
+1. load `dist/display-rollup.html` in a browser to view rendered icons from the rollup bundle.
 
 # Actual Result
 
@@ -15,6 +17,8 @@ modules can be tree-shaken.
 `dist/bundle-webpack.js`
 
 Fast build, tree-shaken (into `dist/bundle-webpack.js`)
+
+(Though the webpack bundle is significantly larger than the rollup bundle.)
 
 We know the tree has been shaken because we don't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
 We can see those in the bundle by text searching for:
@@ -41,6 +45,5 @@ Same as Actual Result.
 
 # Explanation of the Code being Compiled
 
-`src/index.js` contains code that simply imports a single icon out of each of three icon packs from Font Awesome 5 Free, where each icon pack includes many other icons. It adds those to the library, just to make use of the icon objects in some way. And then prints a `hello, world` message. So, the function of the program is trivial, only meant to exercise the build time tree-shaking functionality.
+`src/index.js` contains code that simply imports a single icon out of each of three icon packs from Font Awesome 5 Free, where each icon pack includes many other icons. It adds those to the library and starts watching the DOM for icons to render or modify. It displays those three icons that were imported from the icon packs.
 
-The initial goal of this repo was to demonstrate tree shaking with Webpack 4. That is, to show that when importing and using only a subset of icons, a production-optimized bundle will include only that subset and not the entire icon pack.
