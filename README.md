@@ -35,6 +35,7 @@ There are other branches in this repo with alternate scenarios: workarounds and 
 1. `uglify-js-no-compress`: adds `compress: false` to `uglifyOptions` in `webpack.config.js`. Not a satisfactory workaround.
 1. `babel-minify`: uses `babel-minify-webpack-plugin` instead of the default config that uses UglifyJS. This scenario works as expected: fast build, with proper tree-shaking.
 1. `webpack-3.8.1`: uses webpack 3.8.1 and mostly-default configuration to achieve a production build, instead of webpack 4. Works as expected: fast build, with proper tree-shaking.
+1. `re-exports-trial`: packaging icon `index.es.js` modules as importing and exporting individual icon submodules. Compare Rollup to Webpack 4.
 
 # Explanation of the Code being Compiled
 
