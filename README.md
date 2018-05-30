@@ -8,18 +8,13 @@ modules can be tree-shaken.
 # Usage
 1. `yarn`
 1. `webpack --progress --mode production`
-1. `rollup -c`
 1. load `dist/display-webpack.html` in a browser to view rendered icons from the webpack bundle.
-1. load `dist/display-rollup.html` in a browser to view rendered icons from the rollup bundle.
 
 # Actual Result
 
-## Webpack
 `dist/bundle-webpack.js`
 
-Fast build, tree-shaken (into `dist/bundle-webpack.js`)
-
-(Though the webpack bundle is significantly larger than the rollup bundle.)
+Fast build, tree-shaken
 
 We know the tree has been shaken because we don't find any icons in the bundle other than `bell`, `coffee`, and `font-awesome`.
 We can see those in the bundle by text searching for:
@@ -29,22 +24,11 @@ We can see those in the bundle by text searching for:
 
 We do _not_ find other icons in the icon packs, such as 'beer'.
 
-## Rollup
-`dist/bundle-rollup.js`
-
-Fast build, tree-shaken (into `dist/bundle-rollup.js`)
-
 # Expected Results
-
-## Webpack
 
 Same as Actual Result.
 
 The key here is that Webpack is (apparently) handling tree-shaking at the bundler level, not at the level of a minification plugin, like uglify.
-
-## Rollup
-
-Same as Actual Result.
 
 # Explanation of the Code being Compiled
 
