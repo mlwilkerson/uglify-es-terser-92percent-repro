@@ -9,6 +9,8 @@
 1. `yarn`
 1. `webpack --progress --mode production`
 1. `rollup -c`
+1. load `dist/display-webpack.html` in a browser to view rendered icons from the webpack bundle.
+1. load `dist/display-rollup.html` in a browser to view rendered icons from the rollup bundle.
 
 # Actual Result
 
@@ -34,4 +36,4 @@ We should _not_ be able to find other icons in the icon packs, such as 'beer'.
 
 # Explanation of the Code being Compiled
 
-`src/index.js` contains code that simply imports a single icon out of each of three icon packs from Font Awesome 5 Free, where each icon pack includes many other icons. It adds those to the library, just to make use of the icon objects in some way. And then prints a `hello, world` message. So, the function of the program is trivial, only meant to exercise the build time tree-shaking functionality.
+`src/index.js` contains code that simply imports a single icon out of each of three icon packs from Font Awesome 5 Free, where each icon pack includes many other icons. It adds those to the library and starts watching the DOM for icons to render or modify. It displays those three icons that were imported from the icon packs.
