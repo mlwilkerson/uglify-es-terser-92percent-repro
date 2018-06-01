@@ -53,7 +53,7 @@ We should _not_ be able to find other icons in the minified bundles, such as 'be
 
 Initially, this repo was made to reproduce the notorious "92% asset chunk asset optimization" hang issue in Webpack 4.
 
-It is now more focused on demonstrating that the problem lies with the `uglify-es` minifier. Using a different minifier, such as `babel-minifiy`, on a webpack 4 bundle works. And the `uglify-js` minifier from webpack 3 also worked as expected. But the default minifier for webpack 4 is _very_ slow in this scenario.
+It is now more focused on demonstrating that the problem lies with the `uglify-es` minifier. Using a different minifier, such as `babel-minifiy`, on a webpack 4 bundle works. And the `uglify-js` minifier from webpack 3 also worked as expected (See the `webpack-3.12.0` branch of this repo). But the default minifier for webpack 4 is _very_ slow in this scenario.
 
 In Webpack's way of tree-shaking, it is the minifier plugin that is responsible for finally eliminating the dead code, and thus for how long that tree-shaking process takes. [See here.](https://www.emarsys.com/en/resources/blog/tree-shaking-in-webpack-2/):
 
@@ -72,6 +72,7 @@ Earlier explorations produced multiple branches, attempting various scenarios. S
 1. `uglify-js-no-compress`: adds `compress: false` to `uglifyOptions` in `webpack.config.js`. Not a satisfactory workaround.
 1. `babel-minify`: uses `babel-minify-webpack-plugin` instead of the default config that uses UglifyJS. This scenario works as expected: fast build, with proper tree-shaking.
 1. `webpack-3.8.1`: uses webpack 3.8.1 and mostly-default configuration to achieve a production build, instead of webpack 4. Works as expected: fast build, with proper tree-shaking.
+1. `webpack-3.12.0`: uses webpack 3.12.0. Works as expected: fast build, with proper tree-shaking.
 1. `re-exports-trial`: packaging icon `index.es.js` modules as importing and exporting individual icon submodules AND setting `sideEffects: false`. Compare Rollup to Webpack 4.
 1. `side-effects-false-only`: setting `sideEffects: false` without otherwise changing the _contents_ of the `index.es.js` or submodule files.
 1. `es-submodules`: add `.mjs` (ES6) submodules for each icon and have `index.es.js` import these, also use `sideEffects: false`
