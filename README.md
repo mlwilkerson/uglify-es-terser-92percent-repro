@@ -1,6 +1,6 @@
 # Description
 
-This repo is dedicated to reproducing the notorious "92% asset chunk asset optimization" hang issue originally experienced with Webpack 4, but caused by the `uglify-es` npm package, which is the default minification plugin used by Webpack 4 for production builds.
+This repo is dedicated to reproducing the notorious "92% asset chunk asset optimization" hang issue originally experienced with Webpack 4, but caused by the `uglify-es` npm package, which is the default minification plugin used by Webpack 4 for production builds. The `uglify-es` project is no longer maintained, and has been forked to become `terser`. Hence this repo now reproduces an issue against `terser`, that was originally in `uglify-es`, that was originally discovered using webpack 4.
 
 Build time and final bundle results are compared with an alternate minifier: `babel-minify`.
 
@@ -12,19 +12,14 @@ This produces a production bundle without minimization, and therefore not yet tr
 
 We've configured `webpack.config.js` to disable minification for this reproduction because we want to be able to see a snapshot of what the bundle from webpack 4 would look like before minification. And we want to be sure that the exact same input is used in both of the following steps, where compare running two different minifiers on it: (A) `uglify-es` (the webpack 4 default), and (B) `babel-minify`.
 
-3. `./node_modules/.bin/uglifyjs -V`
+3. `./node_modules/.bin/terser --compress --output dist/bundle-terser.js dist/bundle.js`
 
-Make sure it reports `uglify-es 3.3.9` or compatible, since that's what webpack 4 would be using for minification.
-
-(Yes, it's weird that the command line tool is called `uglifyjs` while the underlying workhorse in this case is `uglify-es`, but no, that's not a typo.)
-
-4. `./node_modules/.bin/uglifyjs --compress --output dist/bundle-uglify-es.js dist/bundle.js`
-
-This will take a _long time_, way too long. It might even seem like it's stuck. But it will probably finish eventually, and produce the correct output (See expected results below).
+This will take about 10 times longer than expected: about 25-30 seconds, instead of 1.5-2 seconds.
+It will, however, produce the correct output (See expected results below).
 
 5. `./node_modules/.bin/babel-minify dist/bundle.js -o dist/bundle-babel-minify.js`
 
-This will run _fast_ and produce correct output.
+This will run _fast_ (about 1-2 seconds) and produce correct output.
 
 # Expected Results
 

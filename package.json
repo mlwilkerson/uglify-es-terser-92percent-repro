@@ -14,10 +14,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.1.0-8",
     "@fortawesome/free-solid-svg-icons": "^5.1.0-8",
     "babel-minify": "^0.4.3",
-    "rollup": "^0.59.4",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-uglify": "^4.0.0",
-    "uglify-es": "^3.3.9",
+    "terser": "^3.7.5",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.5"
   }
