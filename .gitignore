@@ -1,3 +1,2 @@
 node_modules
-dist/bundle-webpack.js
-dist/bundle-rollup.js
+dist/bundle.js
