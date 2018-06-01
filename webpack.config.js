@@ -3,6 +3,9 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle-webpack.js'
+    filename: 'bundle.js'
+  },
+  optimization: {
+    minimize: false
   }
 }
