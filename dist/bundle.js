@@ -2111,8 +2111,9 @@ var free_brands_svg_icons_index_es_iconsCache = {
 
 
 
-console.log(`icons: ${faCoffee.iconName}, ${index_es_faBell.iconName}, ${faFontAwesome.iconName}`)
-
+console.log(faCoffee.iconName)
+console.log(index_es_faBell.iconName)
+console.log(faFontAwesome.iconName)
 
 
 /***/ })
