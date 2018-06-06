@@ -1,4 +1,2 @@
 node_modules
-!node_modules/@fortawesome
 dist/bundle-webpack.js
-dist/bundle-rollup.js
